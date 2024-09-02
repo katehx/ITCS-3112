@@ -27,15 +27,18 @@ public class TaskInput {
             scanner.close();
     }
 
-
+    // MAIN METHOD 
     public static void main(String[] args) {
+
+
+        ArrayList<String> todo = setUp();
+        addTask(todo);
 
 
         //Scanner scanner = new Scanner(System.in);  
 
 
-        ArrayList<String> todo = setUp();
-        addTask(todo);
+        
 
         // ArrayList<String> todo1 = new ArrayList<String>();
 
