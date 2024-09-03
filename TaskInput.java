@@ -11,7 +11,6 @@ public class TaskInput {
 
 
 
-
     static void addTask(ArrayList<String> list){
         //initial prompt to add items to list
         Scanner scanner = new Scanner(System.in);  
@@ -26,13 +25,29 @@ public class TaskInput {
             }
             scanner.close();
     }
-
     // MAIN METHOD 
     public static void main(String[] args) {
 
 
         ArrayList<String> todo = setUp();
         addTask(todo);
+
+
+        Task new1 = new Task(2004, 3, 29, "Do laundry");
+        Task new2 = new Task(2005, 3, 29, "homework");
+        Task new3 = new Task(2006, 3, 29, "put dishes away");
+
+        ArrayList<Task> wah = new ArrayList<Task>();
+        wah.add(new1);
+        wah.add(new2);
+        wah.add(new3);
+
+        System.out.println(wah);
+
+
+        System.out.println("due date: " + new1.dueDate);
+        System.out.println("description: " + new1.description);
+
 
 
         //Scanner scanner = new Scanner(System.in);  
