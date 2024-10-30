@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class CourseManager {
+
+    // Method to repeatedly add AssignmentTypes based on user input
+    public void addAssignmentTypesFromUser(Course course) {
+        Scanner scanner = new Scanner(System.in);
+        String continueAdding;
+
+        do {
+            System.out.print("Enter assignment type name: ");
+            String name = scanner.nextLine();
+
+            System.out.print("Enter assignment type weight (e.g., 0.2 for 20%): ");
+            double weight = scanner.nextDouble();
+            scanner.nextLine(); // Consume newline left-over
+
+            // Create a new AssignmentType and add it to the course
+            course.addAssignmentType(new AssignmentType(name, weight));
+
+            System.out.print("Do you want to add another assignment type? (yes/no): ");
+            continueAdding = scanner.nextLine().trim().toLowerCase();
+        } while (continueAdding.equals("yes"));
+
+        System.out.println("Finished adding assignment types.");
+        scanner.close();
+    }
+}

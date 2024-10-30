@@ -4,6 +4,7 @@ public class Task {
     // fields
     String taskDescription = "";
     LocalDate dueDate;
+    boolean completed;
 
     // constructor
     //https://www.w3schools.com/java/java_date.asp - local date syntax
@@ -21,6 +22,10 @@ public class Task {
             return taskDescription;
         }
 
+        public boolean isCompleted(){
+            return completed;
+        }
+
     // setter methods
         public void setDueDate(LocalDate newDueDate){
             this.dueDate = newDueDate;
@@ -28,6 +33,13 @@ public class Task {
 
         public void setTaskDescription(String newTaskDescirption){
             this.taskDescription = newTaskDescirption;
+        }
+
+        public void setCompleted(boolean newCompleted){
+            this.completed = newCompleted;
+            if(newCompleted == true){
+                //complete date = now
+            }
         }
 
     // other methods

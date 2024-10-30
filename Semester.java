@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Semester {
     // fields
-    ArrayList<Course> semester = new ArrayList<>(Course);
+    ArrayList<Course> semester = new ArrayList<>();
     int year;
     String season = "";
 
@@ -38,11 +38,5 @@ public class Semester {
         public void setSemester(ArrayList<Course> newSemester){
             this.semester = newSemester;
         }
-
-    // other methods
-        //@Override
-        // public String toString(){
-        //     return "Task Description: " + taskDescription + ", Due Date: " + dueDate;
-        // }
     
 }//end class
