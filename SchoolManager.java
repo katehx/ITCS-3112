@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class CourseManager {
+public class SchoolManager {
 
     // Method to repeatedly add AssignmentTypes based on user input
     public void addAssignmentTypesFromUser(Course course) {

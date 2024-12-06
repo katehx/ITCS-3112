@@ -1,51 +1,46 @@
 import java.time.LocalDate;
 
 public class Task {
-    // fields
-    String taskDescription = "";
-    LocalDate dueDate;
-    boolean completed;
+    private String taskDescription;
+    private LocalDate dueDate;
+    private boolean completed;
 
-    // constructor
-    //https://www.w3schools.com/java/java_date.asp - local date syntax
-    public Task(int year, int month, int day, String taskDescription){
+    // Constructor
+    public Task(int year, int month, int day, String taskDescription) {
         this.dueDate = LocalDate.of(year, month, day);
         this.taskDescription = taskDescription;
+        this.completed = false; // Default to incomplete
     }
 
-    // getter methods
-        public LocalDate getDueDate(){
-            return dueDate;
-        }
+    // Getter methods
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
 
-        public String getTaskDescription(){
-            return taskDescription;
-        }
+    public String getTaskDescription() {
+        return taskDescription;
+    }
 
-        public boolean isCompleted(){
-            return completed;
-        }
+    public boolean isCompleted() {
+        return completed;
+    }
 
-    // setter methods
-        public void setDueDate(LocalDate newDueDate){
-            this.dueDate = newDueDate;
-        }
+    // Setter methods
+    public void setDueDate(LocalDate newDueDate) {
+        this.dueDate = newDueDate;
+    }
 
-        public void setTaskDescription(String newTaskDescirption){
-            this.taskDescription = newTaskDescirption;
-        }
+    public void setTaskDescription(String newTaskDescription) {
+        this.taskDescription = newTaskDescription;
+    }
 
-        public void setCompleted(boolean newCompleted){
-            this.completed = newCompleted;
-            if(newCompleted == true){
-                //complete date = now
-            }
-        }
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
 
-    // other methods
-        @Override
-        public String toString(){
-            return "Task Description: " + taskDescription + ", Due Date: " + dueDate;
-        }
-    
-}//end class
+    // Check task is overdue
+    public boolean isOverdue() {
+        return !completed && dueDate.isBefore(LocalDate.now());
+    }
+
+}

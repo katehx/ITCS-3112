@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 
 public class Semester {
-    // fields
+    // Fields
     ArrayList<Course> semester = new ArrayList<>();
     int year;
     String season = "";
 
-    // constructor
+    // Constructor
     public Semester(int year, String season, ArrayList<Course> semester){
         this.year = year;
         this.season = season;
         this.semester = semester;
     }
 
-    // getter methods
+    // Getter methods
         public int getYear(){
             return year;
         }
@@ -26,7 +26,7 @@ public class Semester {
             return semester;
         }
 
-    // setter methods
+    // Setter methods
         public void setYear(int newYear){
             this.year = newYear;
         }
@@ -39,4 +39,4 @@ public class Semester {
             this.semester = newSemester;
         }
     
-}//end class
+}

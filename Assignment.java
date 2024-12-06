@@ -18,9 +18,4 @@ public class Assignment extends Task {
         this.assignmentType = assignmentType;
     }
 
-    // Override toString to include Assignment-specific details
-    @Override
-    public String toString() {
-        return super.toString() + ", Assignment Type: " + assignmentType.getName();
-    }
 }
