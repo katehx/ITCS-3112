@@ -1,6 +1,6 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 
 public class TaskManager {
     private final ArrayList<Task> taskList;
@@ -30,8 +30,8 @@ public class TaskManager {
     }
 
     // Get all incomplete tasks
-    public List<Task> getIncompleteTaskList() {
-        List<Task> incompleteTasks = new ArrayList<>(); 
+    public ArrayList<Task> getIncompleteTaskList() {
+        ArrayList<Task> incompleteTasks = new ArrayList<>(); 
         for (Task task : taskList) { 
             if (!task.isCompleted()) { 
                 incompleteTasks.add(task);
@@ -40,9 +40,20 @@ public class TaskManager {
         return incompleteTasks;
     }
 
+    // Mark task as completed by index in task list
+    public boolean markTaskAsCompleted(int index) {
+        if (index >= 0 && index < taskList.size()) {
+            Task task = taskList.get(index);
+            task.setCompleted(true);
+            task.setCompletionDate(LocalDate.now()); // Set the current date as the completion date
+            return true;
+        }
+        return false;
+    }
+
     // Get all completed tasks
-    public List<Task> getCompletedTaskList() {
-        List<Task> completedTasks = new ArrayList<>(); 
+    public ArrayList<Task> getCompletedTaskList() {
+        ArrayList<Task> completedTasks = new ArrayList<>(); 
         for (Task task : taskList) { 
             if (task.isCompleted()) { 
                 completedTasks.add(task); 
@@ -51,20 +62,11 @@ public class TaskManager {
         return completedTasks; 
     }
 
-    // Mark task as completed by index in task list
-    public boolean markTaskAsCompleted(int index) {
-        if (index >= 0 && index < taskList.size()) {
-            Task task = taskList.get(index);
-            task.setCompleted(true);
-            return true; // Successfully marked as completed
-        }
-        return false; // Invalid index
-    }
-
     // Sort task list by due date
-    public List<Task> getTasksSortedByDate() {
-        List<Task> sortedTasks = new ArrayList<>(taskList);
+    public ArrayList<Task> getTasksSortedByDate() {
+        ArrayList<Task> sortedTasks = new ArrayList<>(taskList);
         sortedTasks.sort(Comparator.comparing(Task::getDueDate));
         return sortedTasks;
     }
+
 }

@@ -1,42 +1,62 @@
 import java.util.ArrayList;
 
 public class Semester {
-    // Fields
-    ArrayList<Course> semester = new ArrayList<>();
-    int year;
-    String season = "";
+    private final ArrayList<Course> courses;
+    private final int year;
+    private final String season;
 
     // Constructor
-    public Semester(int year, String season, ArrayList<Course> semester){
+    public Semester(int year, String season) {
         this.year = year;
         this.season = season;
-        this.semester = semester;
+        this.courses = new ArrayList<>();
     }
 
     // Getter methods
-        public int getYear(){
-            return year;
-        }
+    public int getYear() {
+        return year;
+    }
 
-        public String getSeason(){
-            return season;
-        }
+    public String getSeason() {
+        return season;
+    }
 
-        public ArrayList<Course> getSemester(){
-            return semester;
-        }
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
 
-    // Setter methods
-        public void setYear(int newYear){
-            this.year = newYear;
-        }
+    // Add a course
+    public void addCourse(Course course) {
+        courses.add(course);
+    }
 
-        public void setSeason(String newSeason){
-            this.season = newSeason;
-        }    
+    // Delete a course by name
+    public boolean deleteCourse(String courseName) {
+        for (Course course : courses) {
+            if (course.getCourseName().equalsIgnoreCase(courseName)) {
+                return courses.remove(course);
+            }
+        }
+        return false; // Course not found
+    }
     
-        public void setSemester(ArrayList<Course> newSemester){
-            this.semester = newSemester;
+    // Get course by name
+    public Course getCourseByName(String courseName) {
+        for (Course course : courses) {
+            if (course.getCourseName().equalsIgnoreCase(courseName)) {
+                return course;
+            }
         }
-    
+        return null; // Course not found
+    }
+
+    // List all assignments for the semester
+    public ArrayList<Task> listAllAssignments() {
+        ArrayList<Task> assignments = new ArrayList<>();
+        for (Course course : courses) {
+            assignments.addAll(course.getAssignments());
+        }
+        return assignments;
+    }
+
 }

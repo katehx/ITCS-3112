@@ -4,6 +4,7 @@ public class Task {
     private String taskDescription;
     private LocalDate dueDate;
     private boolean completed;
+    private LocalDate completionDate;
 
     // Constructor
     public Task(int year, int month, int day, String taskDescription) {
@@ -25,6 +26,10 @@ public class Task {
         return completed;
     }
 
+    public LocalDate getCompletionDate() {
+    return completionDate;
+}
+
     // Setter methods
     public void setDueDate(LocalDate newDueDate) {
         this.dueDate = newDueDate;
@@ -36,6 +41,10 @@ public class Task {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public void setCompletionDate(LocalDate completionDate) {
+        this.completionDate = completionDate;
     }
 
     // Check task is overdue
